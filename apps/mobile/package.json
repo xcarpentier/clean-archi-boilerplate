@@ -3,11 +3,23 @@
   "version": "0.0.1",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web",
-    "eject": "expo eject"
+    "env:inmemory": "cp -f ./configuration/env.inmemory.json ./env.json",
+    "env:dev": "cp -f ./configuration/env.dev.json ./env.json",
+    "env:prod": "cp -f ./configuration/env.prod.json ./env.json",
+    "env:storybook:enable": "json -I -f env.json -e 'this.storybook=true'",
+    "env:storybook:disable": "json -I -f env.json -e 'this.storybook=false'",
+    "env:devtools:enable": "json -I -f env.json -e 'this.devtools=true'",
+    "env:devtools:disable": "json -I -f env.json -e 'this.devtools=false'",
+    "start:inmemory": "yarn env:inmemory && yarn start",
+    "start:dev": "yarn env:dev && yarn start",
+    "start:prod": "yarn env:prod && yarn start",
+    "start": "concurrently \"expo start\" \"yarn compile:watch\"",
+    "start:clean": "concurrently \"expo start -c\" \"yarn tsc:watch\"",
+    "compile": "node_modules/.bin/tsc --noEmit",
+    "compile:watch": "node_modules/.bin/tsc --noEmit --watch",
+    "cleaning": "watchman watch-del-all && rm -f yarn.lock && rm -rf node_modules && rm -rf $TMPDIR/react-* && yarn cache clean",
+    "storybook": "yarn storybook:update && yarn env:devtools:enable && yarn env:storybook:enable && yarn start",
+    "storybook:update": "rnstl --searchDir ./storybook/stories --pattern '**/*.stories.tsx'"
   },
   "dependencies": {
     "expo": "^34.0.1",
@@ -17,9 +29,23 @@
     "react-native-web": "^0.11.4"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.1.11",
+    "@storybook/addon-info": "^5.1.11",
+    "@storybook/addon-knobs": "^5.1.11",
+    "@storybook/addon-links": "^5.1.11",
+    "@storybook/addon-ondevice-backgrounds": "^5.1.11",
+    "@storybook/addon-ondevice-knobs": "^5.1.11",
+    "@storybook/addon-ondevice-notes": "^5.1.11",
+    "@storybook/addons": "^5.1.11",
+    "@storybook/react-native": "^5.1.11",
+    "@storybook/theming": "^5.1.11",
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.57.65",
+    "babel-plugin-module-resolver": "3.2.0",
+    "babel-plugin-redux-saga": "1.0.2",
     "babel-preset-expo": "^6.0.0",
+    "expo-yarn-workspaces": "1.2.0",
+    "react-native-storybook-loader": "1.8.0",
     "typescript": "^3.4.5"
   },
   "private": true

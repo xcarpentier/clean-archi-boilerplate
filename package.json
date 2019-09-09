@@ -21,8 +21,6 @@
     "dev:web": "yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start\"",
     "build:web": "yarn workspace @apps/web build",
     "build:common": "yarn workspace @apps/common build",
-    "format": "yarn workspaces run format",
-    "lint": "yarn workspaces run lint",
     "patch-package": "patch-package",
     "prepare": "yarn patch-package"
   },
@@ -38,7 +36,7 @@
     "tslint": "5.19.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "4.0.0",
-    "typescript": "3.3.3333"
+    "typescript": "^3.4.5"
   },
   "husky": {
     "hooks": {
