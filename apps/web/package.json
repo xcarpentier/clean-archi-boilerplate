@@ -1,0 +1,49 @@
+{
+  "name": "@vitrine/web",
+  "private": true,
+  "version": "0.0.1",
+  "description": "vitrine: professional website",
+  "scripts": {
+    "cleaning": "rm -rf ./dist/ && rm -rf ./public/ && rm -rf .cache/ rm -rf node_modules",
+    "compile": "tsc --noEmit",
+    "build": "gatsby build",
+    "format": "prettier --write '{.,src/**}/*.{js,jsx,ts,tsx}'",
+    "lint": "tslint -p .",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "test": "echo 'TODO: test'"
+  },
+  "dependencies": {
+    "gatsby": "2.15.11",
+    "gatsby-image": "2.2.17",
+    "gatsby-plugin-google-analytics": "2.1.15",
+    "gatsby-plugin-manifest": "2.2.15",
+    "gatsby-plugin-offline": "3.0.4",
+    "gatsby-plugin-react-helmet": "3.1.6",
+    "gatsby-plugin-react-native-web": "2.0.0-beta.0",
+    "gatsby-plugin-sharp": "2.2.20",
+    "gatsby-plugin-typescript": "2.1.6",
+    "gatsby-plugin-web-font-loader": "1.0.4",
+    "gatsby-source-filesystem": "2.1.21",
+    "gatsby-transformer-sharp": "2.2.13",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-helmet": "5.2.1",
+    "react-native-web": "0.11.7",
+    "recompose": "0.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.11",
+    "@types/react": "16.9.2",
+    "@types/react-dom": "16.9.0",
+    "@types/react-helmet": "5.0.9",
+    "@types/react-native": "0.60.13",
+    "@types/recompose": "0.30.7",
+    "babel-plugin-react-native-web": "0.11.7",
+    "prettier": "1.18.2",
+    "tslint": "5.19.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-react": "4.0.0",
+    "typescript": "3.5.3"
+  }
+}

@@ -1,0 +1,73 @@
+html > body {
+    display: none;
+    visibility: hidden;
+}
+html.wf-loading > body {
+    visibility: hidden;
+    display: none;
+}
+html.wf-inactive > body {
+    visibility: hidden;
+    display: none;
+}
+html.wf-active > body {
+    visibility: visible;
+    display: block;
+    margin-top: 25px;
+    font-size: 21px;
+    text-align: center;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#visibleLayoutXS, .visibleLayoutXS {
+    display: none;
+}
+
+@media (max-width: 376px) {
+    #hiddenLayoutXS, .hiddenLayoutXS {
+        display: none;
+        width: 0px;
+    }
+    #visibleLayoutXS, .visibleLayoutXS {
+        display: flex;
+        width: 100%;
+    }
+    h1 {
+        font-size: 28px !important;
+    }
+}
