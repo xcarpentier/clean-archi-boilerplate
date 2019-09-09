@@ -1,8 +1,55 @@
 {
   "name": "clean-archi-boilerplate",
   "version": "1.0.0",
+  "private": true,
   "description": "RN & Expo boilerplate",
   "main": "index.js",
   "author": "Xavier Carpentier <xcapetir@gmail.com> (https://xaviercarpentier.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "apps/*"
+    ]
+  },
+  "scripts": {
+    "postinstall": "expo-yarn-workspaces check-workspace-dependencies",
+    "cleaning": "yarn workspaces run cleaning && rm -f yarn.lock && yarn cache clean && rm -rf node_modules",
+    "build": "yarn workspaces run build",
+    "compile": "yarn workspaces run compile",
+    "dev:mobile": "yarn workspace @apps/mobile compile && concurrently --kill-others \"yarn workspace @apps/mobile compile -w\" \"yarn workspace @apps/mobile start\"",
+    "dev:web": "yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start\"",
+    "build:web": "yarn workspace @apps/web build",
+    "build:common": "yarn workspace @apps/common build",
+    "format": "yarn workspaces run format",
+    "lint": "yarn workspaces run lint",
+    "patch-package": "patch-package",
+    "prepare": "yarn patch-package"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "concurrently": "4.1.2",
+    "expo-yarn-workspaces": "1.2.0",
+    "husky": "3.0.5",
+    "lint-staged-offline": "0.0.1",
+    "patch-package": "6.1.4",
+    "prettier": "1.18.2",
+    "tslint": "5.19.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-react": "4.0.0",
+    "typescript": "3.3.3333"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged-offline"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "tslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
 }

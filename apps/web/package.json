@@ -1,7 +1,7 @@
 {
-  "name": "@vitrine/web",
-  "private": true,
+  "name": "@apps/web",
   "version": "0.0.1",
+  "private": true,
   "description": "vitrine: professional website",
   "scripts": {
     "cleaning": "rm -rf ./dist/ && rm -rf ./public/ && rm -rf .cache/ rm -rf node_modules",
