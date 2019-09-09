@@ -1,0 +1,8 @@
+{
+  "name": "clean-archi-boilerplate",
+  "version": "1.0.0",
+  "description": "RN & Expo boilerplate",
+  "main": "index.js",
+  "author": "Xavier Carpentier <xcapetir@gmail.com> (https://xaviercarpentier.com)",
+  "license": "MIT"
+}
