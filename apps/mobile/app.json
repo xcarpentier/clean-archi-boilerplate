@@ -21,6 +21,7 @@
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 10000
     },
+    "scheme": "xcapetir-demo",
     "assetBundlePatterns": [
       "src/assets/images/**",
       "src/assets/fonts/*.ttf",
@@ -34,11 +35,10 @@
       "config": {
         "usesNonExemptEncryption": false
       },
-      "icon": "./src/assets/images/icon_app_ios.png",
+      "icon": "./src/assets/images/icon_ios.png",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to update your avatar picture or to send images through the chat",
-        "NSPhotoLibraryUsageDescription": "This app uses photos to update your avatar picture or to send images through the chat",
-        "NSCalendarsUsageDescription": "This app uses the calendar to set appointments with your doctor"
+        "NSPhotoLibraryUsageDescription": "This app uses photos to update your avatar picture or to send images through the chat"
       },
       "associatedDomains": [
         "applinks:demo.xaviercarpentier.com"
