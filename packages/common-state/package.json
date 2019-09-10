@@ -12,6 +12,7 @@
     "test": "echo 'TODO: test'"
   },
   "dependencies": {
+    "redux": "4.0.4",
     "redux-logger": "3.0.6",
     "redux-saga": "1.0.5"
   },

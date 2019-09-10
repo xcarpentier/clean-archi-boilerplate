@@ -4,7 +4,7 @@ Color name suffix convention:
 - D = more dark
 - L = more light
  */
-enum Color {
+enum AppColor {
   transparent = 'transparent',
 
   primary = '#F9603C',
@@ -32,7 +32,7 @@ enum Color {
   grey = '#7d7d7d',
   greyD = '#696969',
   greyDD = '#555555',
-  greyDDX = '#414141',
+  greyDDD = '#414141',
 
   error = '#EC2434',
   success = '#27D9A1',
@@ -40,4 +40,4 @@ enum Color {
   shadow = 'rgba(30, 34, 45, 0.15)',
 }
 
-export default Color
+export default AppColor

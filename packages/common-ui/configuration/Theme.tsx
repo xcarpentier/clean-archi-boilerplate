@@ -1,11 +1,11 @@
 import { DefaultTheme, Theme } from 'react-native-paper'
-import Color from '../primitives/Color'
+import AppColor from '../primitives/AppColor'
 
 const theme: Theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: Color.primary,
+    primary: AppColor.primary,
   },
 }
 

@@ -22,12 +22,6 @@
       "fallbackToCacheTimeout": 10000
     },
     "scheme": "xcapetir-demo",
-    "assetBundlePatterns": [
-      "src/assets/images/**",
-      "src/assets/fonts/*.ttf",
-      "node_modules/@expo/vector-icons/fonts/*.ttf",
-      "node_modules/react-native-dropdownalert/assets/*.png"
-    ],
     "ios": {
       "bundleIdentifier": "com.xaviercarpentier.demo",
       "supportsTablet": true,
@@ -35,7 +29,7 @@
       "config": {
         "usesNonExemptEncryption": false
       },
-      "icon": "./src/assets/images/icon_ios.png",
+      "icon": "./src/assets/images/icon.png",
       "infoPlist": {
         "NSCameraUsageDescription": "This app uses the camera to update your avatar picture or to send images through the chat",
         "NSPhotoLibraryUsageDescription": "This app uses photos to update your avatar picture or to send images through the chat"
@@ -62,5 +56,14 @@
       ]
     },
     "androidShowExponentNotificationInShellApp": false
+  },
+  "assetBundlePatterns": [
+    "src/assets/images/**",
+    "src/assets/fonts/*.ttf",
+    "node_modules/@expo/vector-icons/fonts/*.ttf",
+    "node_modules/react-native-dropdownalert/assets/*.png"
+  ],
+  "packagerOpts": {
+    "config": "metro.config.js"
   }
 }

@@ -1,8 +1,9 @@
 {
   "name": "@apps/mobile",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "__generated__/AppEntry.js",
   "scripts": {
+    "postinstall": "expo-yarn-workspaces postinstall",
     "env:inmemory": "cp -f ./configuration/env.inmemory.json ./env.json",
     "env:dev": "cp -f ./configuration/env.dev.json ./env.json",
     "env:prod": "cp -f ./configuration/env.prod.json ./env.json",
