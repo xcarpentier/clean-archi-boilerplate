@@ -1,6 +1,6 @@
 {
   "name": "@apps/mobile",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "env:inmemory": "cp -f ./configuration/env.inmemory.json ./env.json",
@@ -13,10 +13,10 @@
     "start:inmemory": "yarn env:inmemory && yarn start",
     "start:dev": "yarn env:dev && yarn start",
     "start:prod": "yarn env:prod && yarn start",
-    "start": "concurrently \"expo start\" \"yarn compile:watch\"",
-    "start:clean": "concurrently \"expo start -c\" \"yarn tsc:watch\"",
-    "compile": "node_modules/.bin/tsc --noEmit",
-    "compile:watch": "node_modules/.bin/tsc --noEmit --watch",
+    "start": "expo start",
+    "start:clean": "expo start -c",
+    "compile": "tsc --noEmit",
+    "compile:watch": "tsc --noEmit --watch",
     "cleaning": "watchman watch-del-all && rm -f yarn.lock && rm -rf node_modules && rm -rf $TMPDIR/react-* && yarn cache clean",
     "storybook": "yarn storybook:update && yarn env:devtools:enable && yarn env:storybook:enable && yarn start",
     "storybook:update": "rnstl --searchDir ./storybook/stories --pattern '**/*.stories.tsx'"

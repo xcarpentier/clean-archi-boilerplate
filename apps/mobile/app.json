@@ -11,20 +11,56 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "splash": {
-      "image": "./src/assets/splash.png",
+      "image": "./src/assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 10000
     },
     "assetBundlePatterns": [
-      "**/*"
+      "src/assets/images/**",
+      "src/assets/fonts/*.ttf",
+      "node_modules/@expo/vector-icons/fonts/*.ttf",
+      "node_modules/react-native-dropdownalert/assets/*.png"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "bundleIdentifier": "com.xaviercarpentier.demo",
+      "supportsTablet": true,
+      "buildNumber": "1",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "icon": "./src/assets/images/icon_app_ios.png",
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to update your avatar picture or to send images through the chat",
+        "NSPhotoLibraryUsageDescription": "This app uses photos to update your avatar picture or to send images through the chat",
+        "NSCalendarsUsageDescription": "This app uses the calendar to set appointments with your doctor"
+      },
+      "associatedDomains": [
+        "applinks:demo.xaviercarpentier.com"
+      ]
+    },
+    "android": {
+      "package": "com.xaviercarpentier.demo",
+      "versionCode": 1,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "demo.xaviercarpentier.com"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
+    },
+    "androidShowExponentNotificationInShellApp": false
   }
 }

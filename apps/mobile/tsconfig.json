@@ -17,6 +17,6 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["App.tsx", "./src"],
+  "include": ["App.tsx", "./src/**/*"],
   "exclude": []
 }
