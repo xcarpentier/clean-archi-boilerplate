@@ -1,0 +1,21 @@
+{
+  "name": "@pack/common-ui",
+  "version": "1.0.0",
+  "description": "common UI package",
+  "main": "index.js",
+  "author": "Xavier Carpentier <xcapetir@gmail.com> (https://xaviercarpentier.com/)",
+  "license": "MIT",
+  "scripts": {
+    "cleaning": "rm -rf node_modules",
+    "compile": "tsc --noEmit",
+    "build": "yarn compile",
+    "test": "echo 'TODO: test'"
+  },
+  "dependencies": {
+    "react-native-paper": "2.16.0",
+    "react-redux": "7.1.1"
+  },
+  "devDependencies": {
+    "@types/react-redux": "7.1.2"
+  }
+}
