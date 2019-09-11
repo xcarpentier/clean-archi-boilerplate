@@ -1,9 +1,9 @@
 import { ENV } from '../../configuration'
-// import { NavigationInteractor } from '@vitrine/common/src/navigationcontext/domain/gateways/Navigation.interactor'
 import { GatsbyNavigationInteractor } from '../adapter/real/GatsbyNavigationInteractor'
+import { NavigationInteractor } from '@pack/common-context/navcontext/domain/gateways/Navigation.interactor'
 
 export class NavigationContextFactory {
-  static navigationInteractor(): any {
+  static navigationInteractor(): NavigationInteractor {
     switch (ENV) {
       case 'prod':
         return new GatsbyNavigationInteractor()

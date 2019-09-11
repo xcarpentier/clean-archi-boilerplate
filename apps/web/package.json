@@ -4,15 +4,21 @@
   "private": true,
   "description": "vitrine: professional website",
   "scripts": {
+    "env:inmemory": "cp -f ./configuration/env.inmemory.json ./env.json",
+    "env:dev": "cp -f ./configuration/env.dev.json ./env.json",
+    "env:prod": "cp -f ./configuration/env.prod.json ./env.json",
     "cleaning": "rm -rf ./dist/ && rm -rf ./public/ && rm -rf .cache/ rm -rf node_modules",
     "compile": "tsc --noEmit",
     "build": "gatsby build",
     "start": "gatsby develop",
+    "start:inmemory": "yarn env:inmemory && yarn start",
+    "start:dev": "yarn env:dev && yarn start",
+    "start:prod": "yarn env:prod && yarn start",
     "serve": "gatsby serve",
     "test": "echo 'TODO: test'"
   },
   "dependencies": {
-    "@pack/common-state": "1.0.0",
+    "@pack/common-context": "1.0.0",
     "@pack/common-ui": "1.0.0",
     "gatsby": "2.15.11",
     "gatsby-image": "2.2.17",

@@ -17,10 +17,9 @@
     "cleaning": "yarn workspaces run cleaning && rm -f yarn.lock && yarn cache clean && rm -rf node_modules",
     "build": "yarn workspaces run build",
     "compile": "yarn workspaces run compile",
-    "dev:mobile": "yarn workspace @apps/mobile compile && concurrently --kill-others \"yarn workspace @apps/mobile compile -w\" \"yarn workspace @apps/mobile start\"",
-    "dev:web": "yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start\"",
+    "dev:mobile": "yarn workspace @apps/mobile compile && concurrently --kill-others \"yarn workspace @apps/mobile compile -w\" \"yarn workspace @apps/mobile start:dev\"",
+    "dev:web": "yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start:dev\"",
     "build:web": "yarn workspace @apps/web build",
-    "build:common": "yarn workspace @apps/common build",
     "patch-package": "patch-package",
     "prepare": "yarn patch-package"
   },

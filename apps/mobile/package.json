@@ -29,7 +29,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "react-native-web": "^0.11.4",
     "@pack/common-ui": "1.0.0",
-    "@pack/common-state": "1.0.0"
+    "@pack/common-context": "1.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.1.11",

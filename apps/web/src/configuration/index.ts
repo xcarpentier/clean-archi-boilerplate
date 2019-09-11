@@ -1,1 +1,2 @@
-export const ENV = 'prod'
+import { env } from '../../env.json'
+export const ENV = env

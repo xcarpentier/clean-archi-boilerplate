@@ -1,5 +1,5 @@
 {
-  "name": "@pack/common-state",
+  "name": "@pack/common-context",
   "version": "1.0.0",
   "description": "common State package",
   "main": "index.js",
@@ -12,11 +12,14 @@
     "test": "echo 'TODO: test'"
   },
   "dependencies": {
+    "idx": "2.5.6",
     "redux": "4.0.4",
+    "redux-actions": "2.6.5",
     "redux-logger": "3.0.6",
     "redux-saga": "1.0.5"
   },
   "devDependencies": {
+    "@types/redux-actions": "2.6.1",
     "@types/redux-logger": "3.0.7"
   }
 }

@@ -1,18 +1,15 @@
-// import { NavigationInteractor } from '@vitrine/common/src/navigationcontext/domain/gateways/Navigation.interactor'
 import { navigate } from 'gatsby'
-// import { RouteName } from '@vitrine/common/src/core/domain/gateways/RouteName'
-import { Linking } from 'react-native'
+import { NavigationInteractor } from '@pack/common-context/navcontext/domain/gateways/Navigation.interactor'
 
-// export class GatsbyNavigationInteractor implements NavigationInteractor {
-export class GatsbyNavigationInteractor {
-  openURL(url: string): void {
-    Linking.openURL(url)
-  }
+export class GatsbyNavigationInteractor implements NavigationInteractor {
   navigateTo(routeName: any, params?: any): void {
     navigate(routeName, { state: params })
   }
-  navigateBack(): void {
+  navigateToAsync(_routeName: string, _params?: any): Promise<void> {
     throw new Error('Method not implemented.')
+  }
+  navigateBack(): void {
+    navigate(-1)
   }
   popToTop(): void {
     throw new Error('Method not implemented.')

@@ -1,0 +1,134 @@
+version: 2
+
+publish: &publish
+  docker:
+    - image: circleci/node:10.16.0
+  steps:
+    - checkout
+    - add_ssh_keys:
+        fingerprints:
+          - '20:b0:1f:4a:a2:3c:4b:12:99:89:9f:2e:88:27:65:45'
+
+    - restore_cache:
+        keys:
+          - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-dependencies-
+
+    - run:
+        name: Installing dependencies
+        command: yarn install
+
+    - run:
+        name: Setup env
+        command: yarn env:$ENV
+
+    - run:
+        name: Check typescript
+        command: yarn compile
+
+    - run:
+        name: Check tslint
+        command: yarn lint
+
+    - run:
+        name: Check tests
+        command: yarn test
+
+    - run:
+        name: Install expo-cli
+        command: sudo yarn global add expo-cli
+
+    - run:
+        name: Login into Expo
+        command: npx expo login --non-interactive -u $EXPO_USERNAME
+
+    - run:
+        name: Publish to Expo
+        command: |
+          expo_release_channel=""
+          yarn env:$ENV
+          case "$ENV" in
+            "prod") expo_release_channel='default'
+            ;;
+            "dev") expo_release_channel=`echo $CIRCLE_BRANCH | sed 's/\//_/g'`
+            ;;
+          esac
+          npx expo publish --quiet --max-workers 1 --release-channel $expo_release_channel
+    - save_cache:
+        paths:
+          - node_modules
+          - ~/.cache/yarn
+        key: v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+checkdeps: &checkdeps
+  docker:
+    - image: circleci/node:10.16.0
+  steps:
+    - checkout
+    - run:
+        name: Install npm-check-updates
+        command: sudo yarn global add npm-check-updates
+    - run:
+        name: Check deps
+        command: ncu -e 2 --dep prod
+
+jobs:
+  publish_to_expo_dev:
+    environment:
+      ENV: dev
+    <<: *publish
+
+  publish_to_expo_prod:
+    environment:
+      ENV: prod
+    <<: *publish
+
+  publish_to_netlify_prod:
+    environment:
+      ENV: prod
+    <<: *publish_netlify
+
+  publish_to_expo_gitflow:
+    environment:
+      ENV: dev
+    <<: *publish
+
+  check_dependencies:
+    environment:
+      ENV: dev
+    <<: *checkdeps
+
+workflows:
+  version: 2
+  watchdog_system:
+    jobs:
+      - publish_to_expo_dev:
+          filters:
+            branches:
+              only: dev
+      - publish_to_expo_prod:
+          filters:
+            branches:
+              only: master
+      - publish_to_netlify_prod:
+          filters:
+            branches:
+              only: master
+      - publish_to_expo_gitflow:
+          filters:
+            branches:
+              only: /^feature\/.*$|^release\/.*$|^hotfix\/.*$/
+  # nightly:
+  #   triggers:
+  #     - schedule:
+  #         cron: '0 0 * * *'
+  #         filters:
+  #           branches:
+  #             only:
+  #               - dev
+  #   jobs:
+  #     - check_dependencies
+
+# notify:
+#   webhooks:
+#     - url: https://xc-ci-webhook.now.sh/

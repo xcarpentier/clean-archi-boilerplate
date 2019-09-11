@@ -1,11 +1,13 @@
 import * as React from 'react'
 import '../../static/base.css'
-import { View } from 'react-native'
 import Provider from '@pack/common-ui/configuration/Provider'
+import createAppStore from '@pack/common-context/configuration/redux/store'
 import theme from '@pack/common-ui/configuration/Theme'
-import store from '@pack/common-state/configuration/redux/store'
 import { Heading1 } from '@pack/common-ui/primitives/AppText'
-import { MainContainer, Main } from '@pack/common-ui/primitives/AppView'
+import { MainContainer } from '@pack/common-ui/primitives/AppView'
+import { dependencies } from '../configuration/dependencies'
+
+const store = createAppStore(dependencies)
 
 export default function App() {
   return (

@@ -12,6 +12,11 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
         configFile: false,
 
         // The configuration for compilation
+        env: {
+          production: {
+            plugins: ['react-native-paper/babel'],
+          },
+        },
         presets: [
           ['@babel/preset-env', { useBuiltIns: 'usage' }],
           '@babel/preset-react',
