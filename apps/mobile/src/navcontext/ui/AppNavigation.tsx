@@ -1,3 +1,4 @@
+import React from 'react'
 import { setAppNavigation } from '../configuration/AppNavigationSingleton'
 import { AppNavigatorBase } from '../configuration/navigation.configuration'
 
