@@ -1,4 +1,4 @@
-import { navigationContextDependencies } from '../../../../apps/web/src/navigationcontext/configuration/navigationContextDependencies'
+import { navigationContextDependencies } from '../../navcontext/configuration/navigationContextDependencies'
 
 export interface DependenciesType {
   [key: string]: any

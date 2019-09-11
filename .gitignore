@@ -11,3 +11,4 @@ npm-debug.log
 yarn-error.log
 apps/mobile/configuration/env.json
 packages/common-*/lib/
+env.json

@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { StyleSheet, Text, Platform } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import { AppAccessibilityRole } from './AppAccessibilityRole'
 import AppColor from './AppColor'
+import { Text } from 'react-native-paper'
 
 type AppSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl'
 type AppWeight = 'thin' | 'normal'
@@ -36,9 +37,6 @@ const BaseStyle = StyleSheet.create({
         WebkitFontSmoothing: 'antialiased',
       },
     }),
-  },
-  link: {
-    textDecorationLine: 'underline',
   },
 })
 

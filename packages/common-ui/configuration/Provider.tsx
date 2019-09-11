@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { Provider as PaperProvider, Theme } from 'react-native-paper'
 import { Provider as StoreProvider } from 'react-redux'
+import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { Store } from 'redux'
 
 interface AppProviderProps {
@@ -14,8 +15,10 @@ export default function AppProvider({
   children,
 }: AppProviderProps) {
   return (
-    <StoreProvider {...{ store }}>
-      <PaperProvider {...{ theme }}>{children}</PaperProvider>
-    </StoreProvider>
+    <ActionSheetProvider>
+      <StoreProvider {...{ store }}>
+        <PaperProvider {...{ theme }}>{children}</PaperProvider>
+      </StoreProvider>
+    </ActionSheetProvider>
   )
 }

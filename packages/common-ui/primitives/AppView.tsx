@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FlexStyle, StyleSheet, View, Dimensions, Platform } from 'react-native'
+import { FlexStyle, StyleSheet, View } from 'react-native'
 import { AppAccessibilityRole } from './AppAccessibilityRole'
 import AppColor from './AppColor'
 

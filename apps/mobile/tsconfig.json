@@ -2,6 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "noImplicitAny": true,
+    "rootDir": "src",
+    "baseUrl": "src",
     "jsx": "react-native",
     "lib": ["es2017", "es6", "dom"],
     "isolatedModules": true,
@@ -15,7 +17,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "expo": ["../node_modules/@types/expo", "../node_modules/expo"],
+      "*": ["*", "*.ios", "*.android"]
+    }
   },
   "include": ["App.tsx", "./src/**/*"],
   "exclude": []

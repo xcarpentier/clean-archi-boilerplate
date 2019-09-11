@@ -23,13 +23,16 @@
     "storybook:update": "rnstl --searchDir ./storybook/stories --pattern '**/*.stories.tsx'"
   },
   "dependencies": {
+    "@pack/common-context": "1.0.0",
+    "@pack/common-ui": "1.0.0",
     "expo": "^34.0.1",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+    "react-native-screens": "1.0.0-alpha.22",
     "react-native-web": "^0.11.4",
-    "@pack/common-ui": "1.0.0",
-    "@pack/common-context": "1.0.0"
+    "react-navigation": "4.0.3",
+    "react-navigation-stack": "1.5.5"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.1.11",
