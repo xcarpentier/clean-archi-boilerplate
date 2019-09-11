@@ -1,3 +1,3 @@
 import { combineReducers } from 'redux'
-
-export default combineReducers({})
+import { navigation } from '../../navcontext/usecases/navigation.reducers'
+export default combineReducers({ navigation })
