@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './configuration/env.config'
 import { Updates, AppLoading } from 'expo'
 import { AppErrorBoundary } from '@pack/common-ui/primitives/AppErrorBoundary'
 import Provider from '@pack/common-ui/configuration/Provider'
@@ -17,11 +18,11 @@ const bootstrapAsync = async () => {
 }
 
 export default function App() {
-  const [isReady, setData] = useState(false)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    bootstrapAsync().then(() => setData(true))
-  })
+    bootstrapAsync().then(() => setIsReady(true))
+  }, [])
 
   return (
     <AppErrorBoundary reload={Updates.reload}>

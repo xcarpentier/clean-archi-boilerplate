@@ -75,3 +75,20 @@
       - `<case>.reducers.ts`
       - `<case>.sagas.ts`
       - `<case>.selectors.ts`
+
+# TODO
+
+## 1. Initialize Git Flow
+> `git flow init`
+
+## 2. Create A Netlify Website
+> [Netlify](https://app.netlify.com)
+
+## 3. Set Environment Variables On CircleCi
+
+> [CircleCI](https://circleci.com/dashboard)
+- EXPO_CLI_PASSWORD
+- EXPO_USERNAME
+- NETLIFY_AUTH_TOKEN
+- NETLIFY_SITE_ID
+
