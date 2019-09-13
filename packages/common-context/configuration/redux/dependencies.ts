@@ -1,11 +1,9 @@
 import { navigationContextDependencies } from '../../navcontext/configuration/navigationContextDependencies'
 
-export interface DependenciesType {
-  [key: string]: any
-}
-
-const dependencies: DependenciesType = {
+const dependencies = {
   ...navigationContextDependencies,
 }
+
+export type DependenciesType = typeof dependencies
 
 export default dependencies

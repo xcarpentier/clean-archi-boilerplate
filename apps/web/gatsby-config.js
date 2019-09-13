@@ -24,16 +24,17 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'TBD',
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: 'TBD',
+    //   },
+    // },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-native-web`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
   ],
 }

@@ -1,3 +1,9 @@
+## Set Environment Variables
+# EXPO_CLI_PASSWORD
+# EXPO_USERNAME
+# NETLIFY_AUTH_TOKEN
+# NETLIFY_SITE_ID
+
 version: 2
 
 publish: &publish
@@ -5,9 +11,6 @@ publish: &publish
     - image: circleci/node:10.16.0
   steps:
     - checkout
-    - add_ssh_keys:
-        fingerprints:
-          - '20:b0:1f:4a:a2:3c:4b:12:99:89:9f:2e:88:27:65:45'
 
     - restore_cache:
         keys:
@@ -26,17 +29,17 @@ publish: &publish
         name: Check typescript
         command: yarn compile
 
-    - run:
-        name: Check tslint
-        command: yarn lint
-
-    - run:
-        name: Check tests
-        command: yarn test
+    # - run:
+    #     name: Check tests
+    #     command: yarn test
 
     - run:
         name: Install expo-cli
         command: sudo yarn global add expo-cli
+
+    - run:
+        name: Build
+        command: yarn build
 
     - run:
         name: Login into Expo
@@ -53,7 +56,18 @@ publish: &publish
             "dev") expo_release_channel=`echo $CIRCLE_BRANCH | sed 's/\//_/g'`
             ;;
           esac
-          npx expo publish --quiet --max-workers 1 --release-channel $expo_release_channel
+          cd ./apps/mobile
+          npx expo optimize
+          npx expo publish --quiet --release-channel $expo_release_channel
+          cd ../..
+    - run:
+        name: Install netlify-cli
+        command: sudo yarn global add netlify-cli
+
+    - run:
+        name: Deploy to Netlify
+        command: npx netlify deploy --dir=./apps/web/public -p
+
     - save_cache:
         paths:
           - node_modules
@@ -73,22 +87,17 @@ checkdeps: &checkdeps
         command: ncu -e 2 --dep prod
 
 jobs:
-  publish_to_expo_dev:
+  publish_dev:
     environment:
       ENV: dev
     <<: *publish
 
-  publish_to_expo_prod:
+  publish_prod:
     environment:
       ENV: prod
     <<: *publish
 
-  publish_to_netlify_prod:
-    environment:
-      ENV: prod
-    <<: *publish_netlify
-
-  publish_to_expo_gitflow:
+  publish_gitflow:
     environment:
       ENV: dev
     <<: *publish
@@ -100,34 +109,30 @@ jobs:
 
 workflows:
   version: 2
-  watchdog_system:
+  build_test_publish_wkfs:
     jobs:
-      - publish_to_expo_dev:
+      - publish_dev:
           filters:
             branches:
-              only: dev
-      - publish_to_expo_prod:
-          filters:
-            branches:
-              only: master
-      - publish_to_netlify_prod:
+              only: develop
+      - publish_prod:
           filters:
             branches:
               only: master
-      - publish_to_expo_gitflow:
+      - publish_gitflow:
           filters:
             branches:
               only: /^feature\/.*$|^release\/.*$|^hotfix\/.*$/
-  # nightly:
-  #   triggers:
-  #     - schedule:
-  #         cron: '0 0 * * *'
-  #         filters:
-  #           branches:
-  #             only:
-  #               - dev
-  #   jobs:
-  #     - check_dependencies
+# nightly:
+#   triggers:
+#     - schedule:
+#         cron: '0 0 * * *'
+#         filters:
+#           branches:
+#             only:
+#               - dev
+#   jobs:
+#     - check_dependencies
 
 # notify:
 #   webhooks:
