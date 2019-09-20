@@ -7,7 +7,7 @@ exports.onCreateWebpackConfig = ({ actions, _loaders, getConfig }) => {
   config.module.rules.push({
     test: /\.(js|tsx?)$/,
     include: /node_modules/,
-    exclude: /node_modules[/\\](?!react-native-paper|react-native-vector-icons|react-native-safe-area-view)/,
+    exclude: /node_modules[/\\](?!react-native-paper|react-native-vector-icons|react-native-safe-area-view|react-native-gifted-chat|react-native-lightbox|react-native-parsed-text|expo-av)/,
     use: {
       loader: 'babel-loader',
       options: {

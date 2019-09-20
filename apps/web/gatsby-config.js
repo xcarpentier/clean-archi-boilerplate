@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `TBD`,
-    description: `TBD`,
+    title: `clean-archi-boilerplate`,
+    description: `clean-archi-boilerplate`,
     author: `@xcapetir`,
   },
   plugins: [
@@ -31,10 +31,10 @@ module.exports = {
     //   },
     // },
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-react-native-web`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-react-native-web`,
   ],
 }

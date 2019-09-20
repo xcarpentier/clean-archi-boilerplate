@@ -22,7 +22,10 @@ export default function App() {
           <title>Clean Archi Boilerplate</title>
           <meta name="apple-itunes-app" content="app-id=myAppStoreID" />
           <meta name="mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-title" content="QRBar" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="Clean Archi Boilerplate"
+          />
           <meta
             name="apple-mobile-web-app-status-bar"
             content={AppColor.primary}
@@ -34,9 +37,7 @@ export default function App() {
           src: url(${require('react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf')}) format('truetype');
         }
       `}</style>
-        <Centered>
-          <AppNavigationBase />
-        </Centered>
+        <AppNavigationBase />
       </Provider>
     </AppErrorBoundary>
   )

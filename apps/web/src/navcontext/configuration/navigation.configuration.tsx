@@ -5,9 +5,7 @@ import Chat from '@pack/common-context/messagingcontext/ui/Chat'
 export default function AppNavigationBase() {
   return (
     <Router>
-      <ChatList path="app/" />
-      <ChatList path="app/chatlist" />
-      <Chat path="app/chat" />
+      <Chat path="app/" />
     </Router>
   )
 }

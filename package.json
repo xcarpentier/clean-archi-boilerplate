@@ -20,6 +20,7 @@
     "env:dev": "yarn workspace @apps/mobile env:dev && yarn workspace @apps/web env:dev",
     "env:prod": "yarn workspace @apps/mobile env:prod && yarn workspace @apps/web env:prod",
     "dev:mobile": "yarn workspace @apps/mobile env:dev && yarn workspace @apps/mobile compile && concurrently --kill-others \"yarn workspace @apps/mobile compile -w\" \"yarn workspace @apps/mobile start\"",
+    "dev:mobile:clean": "yarn workspace @apps/mobile env:dev && yarn workspace @apps/mobile compile && concurrently --kill-others \"yarn workspace @apps/mobile compile -w\" \"yarn workspace @apps/mobile start:clean\"",
     "dev:web": "yarn workspace @apps/web env:dev && yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start\"",
     "dev:web:inmemory": "yarn workspace @apps/web env:inmemory && yarn workspace @apps/web compile && concurrently --kill-others \"yarn workspace @apps/web compile -w\" \"yarn workspace @apps/web start\"",
     "build:web": "yarn workspace @apps/web build",

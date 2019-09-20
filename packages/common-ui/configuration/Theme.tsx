@@ -7,6 +7,12 @@ const theme: Theme = {
     ...DefaultTheme.colors,
     primary: AppColor.primary,
   },
+  fonts: {
+    medium: 'Open Sans',
+    light: 'Open Sans',
+    thin: 'Open Sans',
+    regular: 'Open Sans',
+  },
 }
 
 export default theme
