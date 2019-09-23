@@ -13,7 +13,6 @@ html.wf-inactive > body {
 html.wf-active > body {
     visibility: visible;
     display: block;
-    margin-top: 25px;
     font-size: 21px;
     text-align: center;
     animation: fadein 3s;
