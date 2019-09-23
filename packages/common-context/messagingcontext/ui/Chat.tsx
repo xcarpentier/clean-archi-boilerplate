@@ -22,7 +22,7 @@ export default function Chat(_props: ChatProps) {
   const { width, height } = Dimensions.get('window')
 
   return (
-    <View style={{ width, height }}>
+    <View style={{ width: '100%', height }}>
       <GiftedChat {...{ messages, onSend, user, inverted }} />
     </View>
   )
