@@ -9,7 +9,7 @@ export default function Chat(_props: ChatProps) {
   const [messages, setMessages] = useState<IMessage[]>([
     {
       _id: 123,
-      text: 'coucou',
+      text: 'Hello World',
       user: { _id: 2, name: 'you' },
       createdAt: new Date(),
     },
