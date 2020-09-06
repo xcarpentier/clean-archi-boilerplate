@@ -13126,9 +13126,10 @@ react-native-paper@2.16.0:
     react-lifecycles-compat "^3.0.4"
     react-native-safe-area-view "^0.12.0"
 
-"react-native-parsed-text@git+https://github.com/EvanBacon/react-native-parsed-text.git":
+"react-native-parsed-text@https://github.com/EvanBacon/react-native-parsed-text.git":
   version "0.0.22"
-  resolved "git+https://github.com/EvanBacon/react-native-parsed-text.git#24939951b13a8223882c74610d758903eed652ab"
+  uid c909f64ee437796fd1b047edd73146fc89edb796
+  resolved "https://github.com/EvanBacon/react-native-parsed-text.git#c909f64ee437796fd1b047edd73146fc89edb796"
   dependencies:
     prop-types "^15.5.10"
 
@@ -15461,9 +15462,9 @@ tough-cookie@~2.4.3:
     punycode "^1.4.1"
 
 tree-kill@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.1.tgz#5398f374e2f292b9dcc7b2e71e30a5c3bb6c743a"
-  integrity sha512-4hjqbObwlh2dLyW4tcz0Ymw0ggoaVDMveUB9w8kFSQScdRLo0gxO9J7WFcUBo+W3C1TLdFIEwNOWebgZZ0RH9Q==
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
+  integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
 trim-newlines@^1.0.0:
   version "1.0.0"
@@ -16121,7 +16122,7 @@ webpack-log@^2.0.0:
     ansi-colors "^3.0.0"
     uuid "^3.3.2"
 
-webpack-merge@^4.1.5, webpack-merge@^4.2.2:
+webpack-merge@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.2.2.tgz#a27c52ea783d1398afd2087f547d7b9d2f43634d"
   integrity sha512-TUE1UGoTX2Cd42j3krGYqObZbOD+xF7u28WB7tfUordytSjbWTIjK/8V0amkBfTYN4/pB/GIDlJZZ657BGG19g==
